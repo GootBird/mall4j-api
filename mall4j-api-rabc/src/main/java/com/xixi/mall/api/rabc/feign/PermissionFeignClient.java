@@ -22,7 +22,7 @@ public interface PermissionFeignClient {
      * @param method  method
      * @return 是否有某个uri的权限
      */
-    @GetMapping(FeignInsideAuthConfig.INSIDER_URL + "/checkPermission")
+    @GetMapping("/checkPermission")
     ServerResponse<Boolean> checkPermission(@RequestParam("userId") Long userId,
                                             @RequestParam("sysType") Integer sysType,
                                             @RequestParam("uri") String uri,
@@ -35,7 +35,7 @@ public interface PermissionFeignClient {
      * @param clearUserPermissionsCacheDto dto
      * @return 是否调用成功
      */
-    @PostMapping(FeignInsideAuthConfig.INSIDER_URL + "/clearUserPermissionsCache")
+    @PostMapping("/clearUserPermissionsCache")
     ServerResponse<Void> clearUserPermissionsCache(@RequestBody ClearUserPermissionsCacheDto clearUserPermissionsCacheDto);
 
 }

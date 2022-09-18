@@ -20,7 +20,7 @@ public interface AccountFeignClient {
      * @param authAccountDto 账户信息
      * @return Long uid
      */
-    @PostMapping(FeignInsideAuthConfig.INSIDER_URL + "/save")
+    @PostMapping("/save")
     ServerResponse<Long> save(@RequestBody AuthAccountDto authAccountDto);
 
     /**
