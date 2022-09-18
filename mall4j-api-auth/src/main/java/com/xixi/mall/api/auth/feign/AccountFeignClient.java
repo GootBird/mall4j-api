@@ -65,7 +65,7 @@ public interface AccountFeignClient {
      * @param userInfoInTokenBo 账户信息 和社交账号信息
      * @return uid
      */
-    @PostMapping(FeignInsideAuthConfig.INSIDER_URL + "/storeTokenAndGet")
+    @PostMapping("/storeTokenAndGet")
     ServerResponse<TokenInfoVo> storeTokenAndGet(@RequestBody UserInfoInTokenBo userInfoInTokenBo);
 
     /**
@@ -75,7 +75,7 @@ public interface AccountFeignClient {
      * @param sysType  系统类型
      * @return resp
      */
-    @PostMapping(FeignInsideAuthConfig.INSIDER_URL + "/getByUsername")
+    @PostMapping("/getByUsername")
     ServerResponse<AuthAccountVo> getByUsername(@RequestParam("userName") String username,
                                                 @RequestParam("sysType") SysTypeEnum sysType);
 
@@ -87,7 +87,7 @@ public interface AccountFeignClient {
      * @param sysType           用户类型
      * @return resp
      */
-    @PutMapping(FeignInsideAuthConfig.INSIDER_URL + "updateUser")
+    @PutMapping("/updateUser")
     ServerResponse<Void> updateUser(@RequestBody UserInfoInTokenBo userInfoInTokenBo,
                                     @RequestParam("userId") Long userId,
                                     @RequestParam("sysType") Integer sysType);
@@ -98,7 +98,7 @@ public interface AccountFeignClient {
      * @param tenantId 租户Id
      * @return resp
      */
-    @GetMapping(FeignInsideAuthConfig.INSIDER_URL + "/getMerchantByTenantId")
+    @GetMapping("/getMerchantByTenantId")
     ServerResponse<AuthAccountVo> getMerchantByTenantId(@RequestParam("tenantId") Long tenantId);
 
 }
