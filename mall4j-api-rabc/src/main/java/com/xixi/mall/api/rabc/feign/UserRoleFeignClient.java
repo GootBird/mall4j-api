@@ -1,15 +1,14 @@
 package com.xixi.mall.api.rabc.feign;
 
+import com.xixi.mall.api.rabc.constant.FeignConstant;
 import com.xixi.mall.api.rabc.dto.UserRoleDto;
-import com.xixi.mall.common.core.feign.FeignInsideAuthConfig;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(value = "mall4cloud-rbac", contextId = "userRole")
-@RequestMapping(FeignInsideAuthConfig.FEIGN_URL + "/userRole")
+@FeignClient(value = FeignConstant.SERVICE_NAME, contextId = "userRole")
 public interface UserRoleFeignClient {
 
     /**
@@ -18,7 +17,7 @@ public interface UserRoleFeignClient {
      * @param userRoleDTO 用户角色关联信息
      * @return void
      */
-    @PostMapping("/saveByUserIdAndSysType")
+    @PostMapping(FeignConstant.USER_ROLE_FEIGN_PREFIX + "/saveByUserIdAndSysType")
     ServerResponse<Void> saveByUserIdAndSysType(@RequestBody UserRoleDto userRoleDTO);
 
     /**
@@ -27,7 +26,7 @@ public interface UserRoleFeignClient {
      * @param userRoleDTO 用户角色关联信息
      * @return void
      */
-    @PutMapping("/updateByUserIdAndSysType")
+    @PutMapping(FeignConstant.USER_ROLE_FEIGN_PREFIX + "/updateByUserIdAndSysType")
     ServerResponse<Void> updateByUserIdAndSysType(@RequestBody UserRoleDto userRoleDTO);
 
     /**
@@ -36,7 +35,7 @@ public interface UserRoleFeignClient {
      * @param userId 用户id
      * @return void
      */
-    @DeleteMapping("/deleteByUserIdAndSysType")
+    @DeleteMapping(FeignConstant.USER_ROLE_FEIGN_PREFIX + "/deleteByUserIdAndSysType")
     ServerResponse<Void> deleteByUserIdAndSysType(@RequestParam("userId") Long userId);
 
     /**
@@ -45,7 +44,7 @@ public interface UserRoleFeignClient {
      * @param userId 用户id
      * @return 用户角色关联ids
      */
-    @GetMapping("/getRoleIds")
+    @GetMapping(FeignConstant.USER_ROLE_FEIGN_PREFIX + "/getRoleIds")
     ServerResponse<List<Long>> getRoleIds(@RequestParam("userId") Long userId);
 
 }

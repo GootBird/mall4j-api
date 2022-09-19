@@ -1,16 +1,17 @@
 package com.xixi.mall.api.rabc.feign;
 
+import com.xixi.mall.api.rabc.constant.FeignConstant;
 import com.xixi.mall.api.rabc.dto.ClearUserPermissionsCacheDto;
-import com.xixi.mall.common.core.feign.FeignInsideAuthConfig;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RequestMapping(FeignInsideAuthConfig.FEIGN_URL + "/permission")
-@FeignClient(value = PermissionFeignClient.SERVICE_NAME, contextId = "permission")
+@FeignClient(value = FeignConstant.SERVICE_NAME, contextId = "permission")
 public interface PermissionFeignClient {
 
-    String SERVICE_NAME = "mall4cloud-rbac";
 
     /**
      * 校验是否有某个uri的权限
@@ -22,7 +23,7 @@ public interface PermissionFeignClient {
      * @param method  method
      * @return 是否有某个uri的权限
      */
-    @GetMapping("/checkPermission")
+    @GetMapping(FeignConstant.PERMISSION_FEIGN_PREFIX + "/checkPermission")
     ServerResponse<Boolean> checkPermission(@RequestParam("userId") Long userId,
                                             @RequestParam("sysType") Integer sysType,
                                             @RequestParam("uri") String uri,
@@ -35,7 +36,7 @@ public interface PermissionFeignClient {
      * @param clearUserPermissionsCacheDto dto
      * @return 是否调用成功
      */
-    @PostMapping("/clearUserPermissionsCache")
+    @PostMapping(FeignConstant.PERMISSION_FEIGN_PREFIX + "/clearUserPermissionsCache")
     ServerResponse<Void> clearUserPermissionsCache(@RequestBody ClearUserPermissionsCacheDto clearUserPermissionsCacheDto);
 
 }

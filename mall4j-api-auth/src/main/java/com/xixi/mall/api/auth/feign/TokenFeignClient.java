@@ -1,15 +1,13 @@
 package com.xixi.mall.api.auth.feign;
 
 import com.xixi.mall.api.auth.bo.UserInfoInTokenBo;
-import com.xixi.mall.common.core.feign.FeignInsideAuthConfig;
+import com.xixi.mall.api.auth.constant.FeignConstant;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "mall4j-auth", contextId = "token")
-@RequestMapping(FeignInsideAuthConfig.FEIGN_URL + "/token")
+@FeignClient(value = FeignConstant.SERVICE_NAME, contextId = "token")
 public interface TokenFeignClient {
 
     /**
@@ -18,7 +16,7 @@ public interface TokenFeignClient {
      * @param accessToken accessToken
      * @return token保存的用户信息
      */
-    @GetMapping("/checkToken")
+    @GetMapping(FeignConstant.TOKEN_FEIGN_PREFIX + "/checkToken")
     ServerResponse<UserInfoInTokenBo> checkToken(@RequestParam("accessToken") String accessToken);
 
 }

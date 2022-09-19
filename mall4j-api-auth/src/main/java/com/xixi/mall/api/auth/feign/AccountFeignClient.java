@@ -1,17 +1,16 @@
 package com.xixi.mall.api.auth.feign;
 
 import com.xixi.mall.api.auth.bo.UserInfoInTokenBo;
+import com.xixi.mall.api.auth.constant.FeignConstant;
 import com.xixi.mall.api.auth.constant.SysTypeEnum;
 import com.xixi.mall.api.auth.dto.AuthAccountDto;
 import com.xixi.mall.api.auth.vo.AuthAccountVo;
 import com.xixi.mall.api.auth.vo.TokenInfoVo;
-import com.xixi.mall.common.core.feign.FeignInsideAuthConfig;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(value = "mall4j-auth", contextId = "account")
-@RequestMapping(FeignInsideAuthConfig.FEIGN_URL + "/account")
+@FeignClient(value = FeignConstant.SERVICE_NAME, contextId = "account")
 public interface AccountFeignClient {
 
     /**
@@ -20,7 +19,7 @@ public interface AccountFeignClient {
      * @param authAccountDto 账户信息
      * @return Long uid
      */
-    @PostMapping("/save")
+    @PostMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/save")
     ServerResponse<Long> save(@RequestBody AuthAccountDto authAccountDto);
 
     /**
@@ -29,7 +28,7 @@ public interface AccountFeignClient {
      * @param authAccountDto 账户信息
      * @return void
      */
-    @PutMapping("/update")
+    @PutMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/update")
     ServerResponse<Void> update(@RequestBody AuthAccountDto authAccountDto);
 
     /**
@@ -38,7 +37,7 @@ public interface AccountFeignClient {
      * @param authAccountDto 账户信息
      * @return void
      */
-    @PutMapping("/updateAccountStatus")
+    @PutMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/updateAccountStatus")
     ServerResponse<Void> updateAccountStatus(@RequestBody AuthAccountDto authAccountDto);
 
     /**
@@ -47,16 +46,16 @@ public interface AccountFeignClient {
      * @param userId 用户id
      * @return void
      */
-    @DeleteMapping("/deleteById")
+    @DeleteMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/deleteById")
     ServerResponse<Void> deleteById(@RequestParam("userId") Long userId);
 
     /**
      * 根据用户id和系统类型获取用户信息
      *
-     * @param userId  用户id
+     * @param userId 用户id
      * @return void
      */
-    @GetMapping("/getById")
+    @GetMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/getById")
     ServerResponse<AuthAccountVo> getById(@RequestParam("userId") Long userId);
 
     /**
@@ -65,7 +64,7 @@ public interface AccountFeignClient {
      * @param userInfoInTokenBo 账户信息 和社交账号信息
      * @return uid
      */
-    @PostMapping("/storeTokenAndGet")
+    @PostMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/storeTokenAndGet")
     ServerResponse<TokenInfoVo> storeTokenAndGet(@RequestBody UserInfoInTokenBo userInfoInTokenBo);
 
     /**
@@ -75,7 +74,7 @@ public interface AccountFeignClient {
      * @param sysType  系统类型
      * @return resp
      */
-    @PostMapping("/getByUsername")
+    @PostMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/getByUsername")
     ServerResponse<AuthAccountVo> getByUsername(@RequestParam("userName") String username,
                                                 @RequestParam("sysType") SysTypeEnum sysType);
 
@@ -87,7 +86,7 @@ public interface AccountFeignClient {
      * @param sysType           用户类型
      * @return resp
      */
-    @PutMapping("/updateUser")
+    @PutMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/updateUser")
     ServerResponse<Void> updateUser(@RequestBody UserInfoInTokenBo userInfoInTokenBo,
                                     @RequestParam("userId") Long userId,
                                     @RequestParam("sysType") Integer sysType);
@@ -98,7 +97,7 @@ public interface AccountFeignClient {
      * @param tenantId 租户Id
      * @return resp
      */
-    @GetMapping("/getMerchantByTenantId")
+    @GetMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/getMerchantByTenantId")
     ServerResponse<AuthAccountVo> getMerchantByTenantId(@RequestParam("tenantId") Long tenantId);
 
 }
