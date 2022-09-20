@@ -56,7 +56,8 @@ public interface AccountFeignClient {
      * @return void
      */
     @GetMapping(FeignConstant.ACCOUNT_FEIGN_PREFIX + "/getById")
-    ServerResponse<AuthAccountVo> getById(@RequestParam("userId") Long userId);
+    ServerResponse<AuthAccountVo> getById(@RequestParam("userId") Long userId,
+                                          @RequestParam("sysType") Integer sysType);
 
     /**
      * 保存用户信息，生成token，返回前端
