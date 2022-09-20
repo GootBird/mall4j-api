@@ -31,8 +31,7 @@ public interface UserFeignClient {
      * @return 用户详细信息
      */
     @GetMapping(value = FeignConstant.USER_FEIGN_PREFIX + "/getUserAndOpenIdsByUserId")
-    ServerResponse<UserApiVo> getUserAndOpenIdsByUserId(@RequestParam("userId") Long userId,
-                                                        @RequestParam("sysType") Integer sysType);
+    ServerResponse<UserApiVo> getUserAndOpenIdsByUserId(@RequestParam("userId") Long userId);
 
     /**
      * 获取用户数据
