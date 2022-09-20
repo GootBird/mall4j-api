@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mall4j-api-platform</artifactId>
+    <artifactId>mall4j-api-multishop</artifactId>
     <packaging>jar</packaging>
-    <description>平台对内接口</description>
+    <description>店铺对内接口</description>
 
     <dependencies>
         <dependency>
@@ -20,4 +20,5 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
 </project>

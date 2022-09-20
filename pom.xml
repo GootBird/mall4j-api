@@ -16,6 +16,8 @@
         <module>mall4j-api-platform</module>
         <module>mall4j-api-rabc</module>
         <module>mall4j-api-auth</module>
+        <module>mall4j-api-product</module>
+        <module>mall4j-api-multishop</module>
     </modules>
 
 

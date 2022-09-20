@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mall4j-api-platform</artifactId>
+    <artifactId>mall4j-api-product</artifactId>
     <packaging>jar</packaging>
-    <description>平台对内接口</description>
+    <description>商品对内接口</description>
 
     <dependencies>
         <dependency>
@@ -19,5 +19,16 @@
             <artifactId>mall4j-common-core</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.xixi.mall</groupId>
+            <artifactId>mall4j-common-order</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xixi.mall</groupId>
+            <artifactId>mall4j-api-multishop</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
+
 </project>
