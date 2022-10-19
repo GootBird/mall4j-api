@@ -6,6 +6,6 @@ public class FeignConstant {
 
     public static final String SERVICE_NAME = "mall4j-platform";
 
-    public static final String CONFIG_FEIGN_PREFIX = FeignInsideAuthConfig.FEIGN_URL +  "/config";
+    public static final String CONFIG_FEIGN_PREFIX = FeignInsideAuthConfig.FEIGN_URL + "/config";
 
 }
