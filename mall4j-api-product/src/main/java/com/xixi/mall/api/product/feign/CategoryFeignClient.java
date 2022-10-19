@@ -23,8 +23,8 @@ public interface CategoryFeignClient {
     /**
      * 根据上级id，获取子分类id列表
      *
-     * @param categoryId
-     * @return
+     * @param categoryId 类别ID
+     * @return 子分类ID
      */
     @GetMapping(FeignConstant.CATEGORY_FEIGN_PREFIX + "/listCategoryId")
     ServerResponse<List<Long>> listCategoryId(@RequestParam("categoryId") Long categoryId);

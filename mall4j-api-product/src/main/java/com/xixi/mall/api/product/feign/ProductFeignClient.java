@@ -15,16 +15,16 @@ public interface ProductFeignClient {
     /**
      * 通过spuId需要搜索的商品
      *
-     * @param spuId spuid
+     * @param spuId spuId
      * @return es保存的商品信息
      */
-    @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/loadEsProductBO")
-    ServerResponse<EsProductBo> loadEsProductBO(@RequestParam("spuId") Long spuId);
+    @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/loadEsProductBo")
+    ServerResponse<EsProductBo> loadEsProductBo(@RequestParam("spuId") Long spuId);
 
     /**
      * 根据平台categoryId，获取spuId列表
      *
-     * @param shopCategoryIds
+     * @param shopCategoryIds 商品分类Id
      * @return spuId列表
      */
     @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/getSpuIdsByShopCategoryIds")
@@ -33,7 +33,7 @@ public interface ProductFeignClient {
     /**
      * 根据categoryId列表，获取spuId列表
      *
-     * @param categoryIds
+     * @param categoryIds 分类Id
      * @return spuId列表
      */
     @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/getSpuIdsByCategoryIds")
@@ -42,7 +42,7 @@ public interface ProductFeignClient {
     /**
      * 根据brandId，获取spuId列表
      *
-     * @param brandId
+     * @param brandId 品牌Id
      * @return spuId列表
      */
     @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/getSpuIdsByBrandId")
@@ -51,7 +51,7 @@ public interface ProductFeignClient {
     /**
      * 根据店铺id，获取spuId列表
      *
-     * @param shopId
+     * @param shopId 商品Id
      * @return spuId列表
      */
     @GetMapping(FeignConstant.PRODUCT_FEIGN_PREFIX + "/getSpuIdsByShopId")

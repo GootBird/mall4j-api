@@ -25,8 +25,8 @@ public interface ShopCartFeignClient {
      * 通过购物车id删除用户购物车物品
      *
      * @param shopCartItemIds 购物车id
-     * @return
+     * @return void
      */
-    @DeleteMapping(FeignConstant.SHOP_CART_FEIGN_PREFIX + "/delete_item")
+    @DeleteMapping(FeignConstant.SHOP_CART_FEIGN_PREFIX + "/deleteItem")
     ServerResponse<Void> deleteItem(@RequestBody List<Long> shopCartItemIds);
 }
