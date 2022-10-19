@@ -19,6 +19,7 @@
         <module>mall4j-api-product</module>
         <module>mall4j-api-multishop</module>
         <module>mall4j-api-user</module>
+        <module>mall4j-api-search</module>
     </modules>
 
 
