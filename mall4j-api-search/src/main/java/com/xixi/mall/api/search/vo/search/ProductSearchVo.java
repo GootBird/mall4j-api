@@ -1,13 +1,15 @@
 package com.xixi.mall.api.search.vo.search;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
-/**
- * @author FrozenWatermelon
- * @date 2020/11/16
- */
+@Setter
+@Getter
+@ToString
 public class ProductSearchVo {
 
 
@@ -26,53 +28,4 @@ public class ProductSearchVo {
     @ApiModelProperty(value = "分类列表信息")
     private List<CategorySearchVo> categorys;
 
-    public ShopInfoSearchVo getShopInfo() {
-        return shopInfo;
-    }
-
-    public void setShopInfo(ShopInfoSearchVo shopInfo) {
-        this.shopInfo = shopInfo;
-    }
-
-    public List<AttrSearchVo> getAttrs() {
-        return attrs;
-    }
-
-    public void setAttrs(List<AttrSearchVo> attrs) {
-        this.attrs = attrs;
-    }
-
-    public List<BrandSearchVo> getBrands() {
-        return brands;
-    }
-
-    public void setBrands(List<BrandSearchVo> brands) {
-        this.brands = brands;
-    }
-
-    public List<SpuSearchVo> getSpus() {
-        return spus;
-    }
-
-    public void setSpus(List<SpuSearchVo> spus) {
-        this.spus = spus;
-    }
-
-    public List<CategorySearchVo> getCategorys() {
-        return categorys;
-    }
-
-    public void setCategorys(List<CategorySearchVo> categorys) {
-        this.categorys = categorys;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductSearchVO{" +
-                "shopInfo=" + shopInfo +
-                ", attrs=" + attrs +
-                ", brands=" + brands +
-                ", spus=" + spus +
-                '}';
-    }
 }

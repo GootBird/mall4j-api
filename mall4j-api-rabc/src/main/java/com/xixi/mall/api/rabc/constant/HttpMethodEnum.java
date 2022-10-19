@@ -10,9 +10,6 @@ import java.util.stream.Stream;
 
 /**
  * 请求方法 1.GET 2.POST 3.PUT 4.DELETE http方法枚举
- *
- * @author FrozenWatermelon
- * @date 2020/9/3
  */
 @Getter
 @AllArgsConstructor

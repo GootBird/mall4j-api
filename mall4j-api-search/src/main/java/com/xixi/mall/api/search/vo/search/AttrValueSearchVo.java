@@ -1,11 +1,13 @@
 package com.xixi.mall.api.search.vo.search;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-/**
- * @author FrozenWatermelon
- * @date 2020/11/17
- */
+@Getter
+@Setter
+@ToString
 public class AttrValueSearchVo {
 
     @ApiModelProperty(value = "规格值id")
@@ -14,27 +16,4 @@ public class AttrValueSearchVo {
     @ApiModelProperty(value = "规格值名称")
     private String attrValueName;
 
-    public Long getAttrValueId() {
-        return attrValueId;
-    }
-
-    public void setAttrValueId(Long attrValueId) {
-        this.attrValueId = attrValueId;
-    }
-
-    public String getAttrValueName() {
-        return attrValueName;
-    }
-
-    public void setAttrValueName(String attrValueName) {
-        this.attrValueName = attrValueName;
-    }
-
-    @Override
-    public String toString() {
-        return "AttrValueVO{" +
-                "attrValueId=" + attrValueId +
-                ", attrValueName='" + attrValueName + '\'' +
-                '}';
-    }
 }
